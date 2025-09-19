@@ -31,20 +31,81 @@ pip install -r requirements.txt
 ```
 Dependencies include:
 
-transformers
+- transformers
+- datasets
+- torch
+- scikit-learn
+- pandas
+- numpy
+- optuna
+- evaluate
+- sacremoses
 
-datasets
+## Training the Model
 
-torch
+1. Ensure your dataset is saved as an Excel file:
+```
+pytania_sklasyfikowane.xlsx
+```
 
-scikit-learn
+2. Update the path to the dataset in train_context_classifier.py if needed.
 
-pandas
+3. Run the training script:
+```
+python train_context_classifier.py
+```
 
-numpy
+- The script includes hyperparameter tuning with Optuna.
+- The final model will be saved locally or to Google Drive if using Colab.
 
-optuna
+## Running Predictions
 
-evaluate
+1. Save your trained model to a folder, e.g.:
+```
+Colab (Google Drive):
 
-sacremoses
+/content/drive/My Drive/final_best_model
+
+
+Local machine:
+
+./models/final_best_model
+```
+
+2. Update the MODEL_PATH in context_predict.py accordingly:
+```
+# Colab example
+MODEL_PATH = "/content/drive/My Drive/final_best_model"
+
+# Local example
+# MODEL_PATH = "./models/final_best_model"
+```
+
+3. Run the prediction script:
+```
+python context_predict.py
+```
+
+- Enter a question interactively.
+- Type 'exit' to quit.
+- Example output:
+```
+Enter a question: What is the capital of Poland?
+Predicted class: 1 | Probabilities: [0.02 0.98]
+```
+
+## Notes
+
+- The model files are not included in the repo due to size limits. You can:
+
+  - Train the model locally with train_context_classifier.py
+
+  - Or save your trained model to Google Drive and point MODEL_PATH there.
+
+- Use a GPU for faster training and inference if available.
+
+## References
+
+- [HerBERT model](https://huggingface.co/allegro/herbert-base-cased) on Hugging Face  
+- [Transformers library](https://huggingface.co/docs/transformers)  
+- [Optuna hyperparameter optimization](https://optuna.org/)
