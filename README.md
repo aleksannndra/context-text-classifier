@@ -1,6 +1,3 @@
-# context-text-classifier
-“Polish question classifier to detect whether a question requires additional context.”
-
 # Context Classifier
 
 This repository contains a **binary text classifier** that predicts whether a question requires additional context (class 0) or not (class 1). It uses the **HerBERT transformer model** fine-tuned on a custom dataset.
