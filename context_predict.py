@@ -13,9 +13,9 @@ import numpy as np
 
 # Update MODEL_PATH depending on where the model is stored
 # Example: Google Drive in Colab
-MODEL_PATH = "/content/drive/My Drive/final_best_model"
+# MODEL_PATH = "/content/drive/My Drive/final_best_model"
 # Example: Local machine
-# MODEL_PATH = "./models/final_best_model"
+MODEL_PATH = "/Users/aleksandrakopytek/Documents/BIELIK/Context_classifier/final_best_model"
 
 # Device (GPU if available)
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
