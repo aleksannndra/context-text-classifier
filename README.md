@@ -40,7 +40,7 @@ Dependencies include:
 
 ## Training the Model
 
-1. Ensure your dataset is saved as an Excel file:
+1. Ensure dataset is saved as an Excel file:
 ```
 pytania_sklasyfikowane.xlsx
 ```
@@ -57,7 +57,7 @@ python train_context_classifier.py
 
 ## Running Predictions
 
-1. Save your trained model to a folder, e.g.:
+1. Save trained model to a folder:
 ```
 Colab (Google Drive):
 
