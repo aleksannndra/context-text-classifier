@@ -1,6 +1,6 @@
 # context_predict.py
 import torch
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import BertTokenizer, BertForSequenceClassification
 import numpy as np
 
 # -----------------------------
@@ -15,8 +15,8 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # -----------------------------
 # 2) Load Model & Tokenizer from Hugging Face
 # -----------------------------
-tokenizer = AutoTokenizer.from_pretrained(MODEL_REPO)
-model = AutoModelForSequenceClassification.from_pretrained(MODEL_REPO)
+tokenizer = BertTokenizer.from_pretrained(MODEL_REPO)
+model = BertForSequenceClassification.from_pretrained(MODEL_REPO)
 model.to(DEVICE)
 model.eval()
 
