@@ -8,6 +8,7 @@ import numpy as np
 # -----------------------------
 # Hugging Face model repo
 MODEL_REPO = "aleksannndra/context-text-classifier"
+TOKENIZER_PATH = "final_best_model"
 
 # Device (GPU if available)
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
@@ -15,7 +16,10 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # -----------------------------
 # 2) Load Model & Tokenizer from Hugging Face
 # -----------------------------
-tokenizer = BertTokenizer.from_pretrained(MODEL_REPO)
+
+# Load tokenizer from vocab.json
+tokenizer = BertTokenizerFast.from_pretrained(TOKENIZER_PATH)
+
 model = BertForSequenceClassification.from_pretrained(MODEL_REPO)
 model.to(DEVICE)
 model.eval()
