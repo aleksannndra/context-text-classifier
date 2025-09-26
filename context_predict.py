@@ -1,42 +1,26 @@
 # context_predict.py
 import torch
-from transformers import BertTokenizerFast, BertForSequenceClassification
 import numpy as np
+from transformers import BertTokenizerFast, BertForSequenceClassification
 
 # -----------------------------
-# 1) MODEL SETTINGS (Hugging Face)
+# 1) Model & Tokenizer from HF
 # -----------------------------
-# Hugging Face model repo
-MODEL_REPO = "aleksannndra/context-text-classifier"
-TOKENIZER_PATH = "final_best_model"
-
-# Device (GPU if available)
+MODEL_REPO = "aleksannndra/context-text-classifier"  # public HF repo
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# -----------------------------
-# 2) Load Model & Tokenizer from Hugging Face
-# -----------------------------
-
-# Load tokenizer from vocab.json
-tokenizer = BertTokenizerFast.from_pretrained(TOKENIZER_PATH)
-
+# Load tokenizer and model directly from Hugging Face
+tokenizer = BertTokenizerFast.from_pretrained(MODEL_REPO)
 model = BertForSequenceClassification.from_pretrained(MODEL_REPO)
 model.to(DEVICE)
 model.eval()
 
 # -----------------------------
-# 3) Prediction Function
+# 2) Prediction Function
 # -----------------------------
 def predict(sentence: str):
     """
     Predicts the class of a single sentence.
-
-    Args:
-        sentence (str): Input sentence/question
-
-    Returns:
-        pred_class (int): 0 or 1
-        probs (np.ndarray): Probability distribution over classes
     """
     inputs = tokenizer(
         sentence,
@@ -56,7 +40,7 @@ def predict(sentence: str):
     return pred_class, probs
 
 # -----------------------------
-# 4) Interactive Demo
+# 3) Interactive Demo
 # -----------------------------
 if __name__ == "__main__":
     print("Context Classifier Demo (type 'exit' to quit)")
