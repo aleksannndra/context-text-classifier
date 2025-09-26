@@ -1,6 +1,6 @@
 # context_predict.py
 import torch
-from transformers import BertTokenizer, BertForSequenceClassification
+from transformers import BertTokenizerFast, BertForSequenceClassification
 import numpy as np
 
 # -----------------------------
