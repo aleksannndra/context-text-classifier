@@ -1,44 +1,27 @@
 # context_predict.py
-import os
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import numpy as np
 
 # -----------------------------
-# 1) MODEL PATH SETTINGS
+# 1) MODEL SETTINGS (Hugging Face)
 # -----------------------------
-# Colab: uncomment the next two lines if using Google Drive
-# from google.colab import drive
-# drive.mount('/content/drive')
-
-# Update MODEL_PATH depending on where the model is stored
-# Example: Google Drive in Colab
-# MODEL_PATH = "/content/drive/My Drive/final_best_model"
-# Example: Local machine
-MODEL_PATH = "/Users/aleksandrakopytek/Documents/BIELIK/Context_classifier/final_best_model"
+# Hugging Face model repo
+MODEL_REPO = "aleksannndra/context-text-classifier"
 
 # Device (GPU if available)
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 # -----------------------------
-# 2) Check if model folder exists
+# 2) Load Model & Tokenizer from Hugging Face
 # -----------------------------
-if not os.path.exists(MODEL_PATH):
-    raise FileNotFoundError(
-        f"Model folder not found at {MODEL_PATH}. "
-        "Please check the path or download the trained model to this location."
-    )
-
-# -----------------------------
-# 3) Load Model & Tokenizer
-# -----------------------------
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_REPO)
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_REPO)
 model.to(DEVICE)
 model.eval()
 
 # -----------------------------
-# 4) Prediction Function
+# 3) Prediction Function
 # -----------------------------
 def predict(sentence: str):
     """
@@ -69,7 +52,7 @@ def predict(sentence: str):
     return pred_class, probs
 
 # -----------------------------
-# 5) Interactive Demo
+# 4) Interactive Demo
 # -----------------------------
 if __name__ == "__main__":
     print("Context Classifier Demo (type 'exit' to quit)")
