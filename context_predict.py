@@ -74,7 +74,7 @@ def predict(sentence: str):
 if __name__ == "__main__":
     print("Context Classifier Demo (type 'exit' to quit)")
     while True:
-        sentence = input("Enter a question: ")
+        sentence = input("Enter a question in Polish: ")
         if sentence.lower() == "exit":
             break
         cls, prob = predict(sentence)
