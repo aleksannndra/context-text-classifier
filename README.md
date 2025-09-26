@@ -11,11 +11,10 @@ context-classifier/
 ├── train_context_classifier.py # Script to train the model
 ├── context_predict.py # Script to run predictions on new questions
 ├── requirements.txt # Python dependencies
-├── README.md # This file
-└── models/ # Optional: saved trained models
+└── README.md # This file
 ```
 
-> **Note:** The `models/` folder is not included in the repo due to size. See below for instructions on using the trained model.
+> **Note:** The trained model is hosted on Hugging Face. No local model folder is needed.
 
 ---
 
@@ -23,7 +22,7 @@ context-classifier/
 
 Install the dependencies:
 
-```bash
+```
 pip install -r requirements.txt
 ```
 Dependencies include:
@@ -53,53 +52,31 @@ python train_context_classifier.py
 ```
 
 - The script includes hyperparameter tuning with Optuna.
-- The final model will be saved locally or to Google Drive if using Colab.
+- The final model will be saved locally.
 
 ## Running Predictions
 
-1. Save trained model to a folder:
-```
-Colab (Google Drive):
+**The prediction script loads the trained model directly from Hugging Face:**
 
-/content/drive/My Drive/final_best_model
-
-
-Local machine:
-
-./models/final_best_model
-```
-
-2. Update the MODEL_PATH in context_predict.py accordingly:
-```
-# Colab example
-MODEL_PATH = "/content/drive/My Drive/final_best_model"
-
-# Local example
-# MODEL_PATH = "./models/final_best_model"
-```
-
-3. Run the prediction script:
+1. Run the script:
 ```
 python context_predict.py
 ```
-
-- Enter a question interactively.
+- Enter a question **in Polish**.
 - Type 'exit' to quit.
-- Example output:
+
+Example output:
 ```
-Enter a question: What is the capital of Poland?
+Enter a question in Polish: What is the capital of Poland?
 Predicted class: 1 | Probabilities: [0.02 0.98]
 ```
 
 ## Notes
 
-- The model files are not included in the repo due to size limits. You can:
-
-  - Train the model locally with train_context_classifier.py
-
-  - Or save your trained model to Google Drive and point MODEL_PATH there.
-
+- The trained model is hosted on Hugging Face; no local download is required.
 - Use a GPU for faster training and inference if available.
+- Ensure your internet connection is active for predictions, or load a local copy of the model if needed.
+
 
 ## References
 
