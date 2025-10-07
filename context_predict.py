@@ -1,17 +1,17 @@
 # context_predict.py
 import torch
 import numpy as np
-from transformers import BertTokenizerFast, BertForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # -----------------------------
 # 1) Model & Tokenizer from HF
 # -----------------------------
-MODEL_REPO = "aleksannndra/context-text-classifier"  # public HF repo
+MODEL_REPO = "./context_final_best_model"  # public HF repo
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-# Load tokenizer and model directly from Hugging Face
-tokenizer = BertTokenizerFast.from_pretrained(MODEL_REPO)
-model = BertForSequenceClassification.from_pretrained(MODEL_REPO)
+tokenizer = AutoTokenizer.from_pretrained(MODEL_REPO) 
+model = AutoModelForSequenceClassification.from_pretrained(MODEL_REPO)
+
 model.to(DEVICE)
 model.eval()
 
