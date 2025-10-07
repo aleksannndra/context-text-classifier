@@ -7,7 +7,7 @@ This repository contains a **binary text classifier** that predicts whether a qu
 ## Repository Structure
 
 ```
-context-classifier/
+context-text-classifier/
 ├── train_context_classifier.py # Script to train the model
 ├── context_predict.py # Script to run predictions on new questions
 ├── requirements.txt # Python dependencies
