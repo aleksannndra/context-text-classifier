@@ -29,8 +29,8 @@ Najlepszy wynik osiągnięto po **4 epokach** treningu — model uzyskał bardzo
 | 3 | 0.2150 | 0.2313 | 0.9575 | 0.9574 | 0.9578 | 0.9575 | 0.9626 | 0.9507 |
 | **4** | **0.0710** | **0.2935** | **0.9592** | **0.9590** | **0.9600** | **0.9592** | **0.9644** | **0.9522** |
 
-➡️ **Najlepszy model**: *Epoka 4*  
-📈 **Weighted F1 = 0.9590**, **Precision = 0.9600**, **Recall = 0.9592**
+**Najlepszy model**: *Epoka 4*  
+**Weighted F1 = 0.9590**, **Precision = 0.9600**, **Recall = 0.9592**
 
 
 ---
@@ -62,7 +62,7 @@ context-text-classifier/
 ### Klonowanie repozytorium
 
 ```
-git clone https://github.com/<twoj_uzytkownik>/context-text-classifier.git
+git clone https://github.com/aleksannndra/context-text-classifier.git
 cd context-text-classifier
 ```
 ### Instalacja zależności
