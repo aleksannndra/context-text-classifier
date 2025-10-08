@@ -120,7 +120,7 @@ numpy>=1.25.0
 sacremoses
 ```
 
-## Model na Hugging Face (opcjonalnie)
+## Model na Hugging Face
 [![Hugging Face Model](https://img.shields.io/badge/HuggingFace-Model-yellow?logo=huggingface&logoColor=white)](https://huggingface.co/aleksannndra/context-text-classifier)
 
 
